@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
+import os
 
 # Initialize main window
 root = tk.Tk()
@@ -9,10 +10,13 @@ root.title("Snake Water Gun Game")
 root.geometry("500x600")
 root.resizable(False, False)
 
-# Load images
-snake_img = ImageTk.PhotoImage(Image.open("snake.png").resize((100, 100)))
-water_img = ImageTk.PhotoImage(Image.open("water.png").resize((100, 100)))
-gun_img = ImageTk.PhotoImage(Image.open("gun.png").resize((100, 100)))
+# Get the directory where the script is located
+BASE_DIR = os.path.dirname(__file__)
+
+# Load images using full path
+snake_img = ImageTk.PhotoImage(Image.open(os.path.join(BASE_DIR, "snake.png")).resize((100, 100)))
+water_img = ImageTk.PhotoImage(Image.open(os.path.join(BASE_DIR, "water.png")).resize((100, 100)))
+gun_img = ImageTk.PhotoImage(Image.open(os.path.join(BASE_DIR, "gun.png")).resize((100, 100)))
 
 # Variables
 user_score = 0
@@ -28,9 +32,9 @@ def check_winner(comp, user):
     if comp == user:
         return 0
     elif (comp == 0 and user == 1) or (comp == 1 and user == 2) or (comp == 2 and user == 0):
-        return 1  # User wins
+        return -1  # User wins
     else:
-        return -1  # Computer wins
+        return 1  # Computer wins
 
 def play(user_choice):
     global user_score, comp_score, rounds_played
@@ -56,6 +60,14 @@ def play(user_choice):
     result_label.config(text=f"{result_text}\nYou: {choices[user_choice]} | Computer: {choices[comp_choice]}")
     score_label.config(text=f"You: {user_score} | Computer: {comp_score} | Round: {rounds_played}/{rounds_total}")
 
+    if user_score > comp_score:
+        tresult_label.config(text=f"User Wins by {user_score-comp_score} points.")
+    elif user_score == comp_score:
+        tresult_label.config(text=f"Draw no one wins.")  
+    else:
+        tresult_label.config(text=f"Computer Wins by {comp_score-user_score} points.") 
+
+
 def reset_game():
     global user_score, comp_score, rounds_played
     user_score = 0
@@ -63,6 +75,7 @@ def reset_game():
     rounds_played = 0
     result_label.config(text="")
     score_label.config(text="You: 0 | Computer: 0 | Round: 0/10")
+    tresult_label.config(text="")
 
 # GUI layout
 score_label = tk.Label(root, text="You: 0 | Computer: 0 | Round: 0/10", font=("Helvetica", 16))
@@ -85,6 +98,9 @@ result_label.pack(pady=20)
 
 reset_btn = tk.Button(root, text="Reset Game", font=("Helvetica", 14), command=reset_game)
 reset_btn.pack(pady=10)
+
+tresult_label = tk.Label(root, text="", font=("Helvetica", 14))
+tresult_label.pack(pady=20)
 
 # Run the application
 root.mainloop()
