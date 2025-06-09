@@ -3,6 +3,8 @@ A growing collection of simple and beginner-friendly Python projects. This repos
 
 ## 🔧 Projects Included :
 ✅ Password Generator
+🐍 Snake Water Gun Game
+Library Management
 ⏳ More coming soon...
 
 Feel free to explore, fork, and contribute!
