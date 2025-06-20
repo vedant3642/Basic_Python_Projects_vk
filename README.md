@@ -6,6 +6,7 @@ A growing collection of simple and beginner-friendly Python projects. This repos
 🐍 Snake Water Gun Game
 📚 Library Management
 🔐 Secret Code Translator
+📝🔊 Text To Speech
 ⏳ More coming soon...
 
 Feel free to explore, fork, and contribute!
