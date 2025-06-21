@@ -20,9 +20,9 @@ A curated collection of simple and beginner-friendly Python projects to help you
 | [🔑 Password Generator](https://github.com/vedant3642/Basic_Python_Projects_vk/tree/main/Password%20Generator) | Generate secure random passwords with customizable length | ✅ Complete |
 | [🐍 Snake Water Gun Game](Snake_Water_Gun_Game/) | Classic hand game implementation with score tracking | 🎮 Playable |
 | [📚 Library Management](Library_Management/) | Simple CLI system to manage book inventory | 📊 Functional |
-| [🔐 Secret Code Translator](Secret_Code_Translator/) | Encrypt/decrypt messages using basic ciphers | 🔄 Working |
+| [🔐 Secret Code Translator](Secret_Code_Translator/) | Encrypt/decrypt messages using basic ciphers | ✅ Complete |
 | [📝🔊 Text To Speech](Text_to_Speech/) | Convert written text to spoken audio | 🔊 Operational |
-| [💧 Water Reminder](Water_Reminder) | Gives you Water Reminder every hour | ✅ Working |
+| [💧 Water Reminder](Water_Reminder) | Gives you Water Reminder every hour | ✅ Complete |
 
 ⏳ More coming soon...
 
